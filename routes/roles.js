@@ -7,12 +7,12 @@ const allowAction = JWTController.allowAction;
 
 router.get(
     "/",
-    // [verifyJWT, allowAction("roles", "find")],
+    [verifyJWT, allowAction("roles", "find")],
     RoleController.getAll
 );
 router.post(
     "/",
-    // [verifyJWT, allowAction("roles", "create")],
+    [verifyJWT, allowAction("roles", "create")],
     RoleController.add
 );
 router.get(

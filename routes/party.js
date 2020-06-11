@@ -7,12 +7,12 @@ const allowAction = JWTController.allowAction;
 
 router.get(
     "/",
-    // [verifyJWT, allowAction("party", "find")],
+    [verifyJWT, allowAction("party", "find")],
     PartyController.getAll
 );
 router.post(
     "/",
-    // [verifyJWT, allowAction("party", "create")],
+    [verifyJWT, allowAction("party", "create")],
     PartyController.add
 );
 router.get(
@@ -22,7 +22,6 @@ router.get(
 );
 router.patch(
     "/:id",
-    // PositionController.getPositionById,
     [verifyJWT, allowAction("party", "update"), PartyController.getPartyById],
     PartyController.updateParty
 );

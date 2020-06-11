@@ -7,12 +7,12 @@ const allowAction = JWTController.allowAction;
 
 router.get(
     "/",
-    // [verifyJWT, allowAction("permissions", "find")],
+    [verifyJWT, allowAction("permissions", "find")],
     PermissionController.getAll
 );
 router.post(
     "/",
-    // [verifyJWT, allowAction("permissions", "create")],
+    [verifyJWT, allowAction("permissions", "create")],
     PermissionController.add
 );
 router.get(
@@ -36,8 +36,8 @@ router.patch(
 router.delete(
     "/:id",
     [
-        // verifyJWT,
-        // allowAction("permissions", "delete"),
+        verifyJWT,
+        allowAction("permissions", "delete"),
         PermissionController.getPermissionById,
     ],
     PermissionController.deletePermission

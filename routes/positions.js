@@ -7,7 +7,7 @@ const allowAction = JWTController.allowAction;
 
 router.get(
     "/",
-    // [verifyJWT, allowAction("positions", "find")],
+    [verifyJWT, allowAction("positions", "find")],
     PositionController.getAll
 );
 router.post(
@@ -22,7 +22,6 @@ router.get(
 );
 router.patch(
     "/:id",
-    // PositionController.getPositionById,
     [verifyJWT, allowAction("positions", "update"), PositionController.getPositionById],
     PositionController.updatePosition
 );
